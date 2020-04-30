@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".Admin.LoginActivity">
+
+    <!--
+    NOTE: On the background keep the logo of Monday or any other picture,
+     keep logo if needed or else go for logo in the middle then.
+
+     It is basically used to insert the app logo -->
+    <ImageView
+        android:id="@+id/login_applogo"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@drawable/applogo1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        />
+    <!-- We will insert the text for logging in and register over hre, phone number and password-->
+    <EditText
+        android:id="@+id/login_phone_number_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_applogo"
+        android:background="@drawable/input_design"
+        android:padding="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Phone Number"
+        android:inputType="number"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        />
+
+    <!-- layout below has used under phone number so that we can understand
+      that the password has to be under the phone number
+    -->
+    <!-- We will create a linear layout for giving the options of password missing and all those stuff-->
+
+    <EditText
+        android:id="@+id/login_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/login_phone_number_input"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="-8dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design"
+        android:hint="Password"
+
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_password_input"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+
+        android:layout_marginRight="15dp"
+        android:background="@drawable/buttons"
+        android:padding="17dp"
+        android:text="Login Admin"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+</RelativeLayout>
