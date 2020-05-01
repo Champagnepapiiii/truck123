@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.monday"
-        minSdkVersion 28
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -19,7 +19,14 @@ android {
         exclude group: 'com.google.protobuf', module: 'protobuf-java'
         exclude group: 'com.google.guava', module: 'guava-jdk5'
     }
-
+    android {
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -31,12 +38,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.firebase:firebase-analytics:17.3.0'
     implementation 'com.google.firebase:firebase-database:19.2.1'
     implementation 'com.google.firebase:firebase-core:17.3.0'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.firebaseui:firebase-ui-database:6.1.0'
     implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.firebase:firebase-config:19.1.4'
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
 
     //implementation 'com.google.android.gms:play-services-tagmanager:11.0.4'

@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="20dp"
     android:id="@+id/card_product"
-    android:layout_marginStart="15dp"
-    android:layout_marginEnd="15dp"
+    app:cardCornerRadius="3dp"
+    android:layout_marginStart="35dp"
+    android:layout_marginEnd="35dp"
     app:cardElevation="15dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/product_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Product Name"
+            android:textAllCaps="true"
             android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            />
+            android:textColor="@color/colorPrimary" />
 
         <ImageView
             android:id="@+id/product_image"
@@ -60,7 +63,7 @@
 
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>
