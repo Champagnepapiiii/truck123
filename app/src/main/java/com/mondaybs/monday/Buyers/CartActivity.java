@@ -163,7 +163,7 @@ public class CartActivity extends AppCompatActivity {
                                                     if (task.isSuccessful()){
                                                         Toast.makeText(CartActivity.this, "Item removed successfully" , Toast.LENGTH_SHORT).show();
                                                         //Once the item is removed, we will get the users back to the home page
-                                                        Intent intent = new Intent(CartActivity.this, HomeActivity.class);
+                                                        Intent intent = new Intent(CartActivity.this, CartActivity.class);
                                                         startActivity(intent);
                                                     }
                                                 }
