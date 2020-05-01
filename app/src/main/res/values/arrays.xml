@@ -5,7 +5,6 @@
         <item>Cart</item>
         <item>Search</item>
         <item>Settings</item>
-        <item>Privacy policy</item>
         <item>Terms &amp; condition</item>
         <item>Seller</item>
         <item>Logout</item>
@@ -16,7 +15,6 @@
         <item>@drawable/ic_cart</item>
         <item>@drawable/ic_search_black_24dp</item>
         <item>@drawable/ic_settings_black_24dp</item>
-        <item>@drawable/ic_privacy_policy</item>
         <item>@drawable/ic_terms_and_condition</item>
         <item>@drawable/ic_seller</item>
         <item>@drawable/ic_signout</item>

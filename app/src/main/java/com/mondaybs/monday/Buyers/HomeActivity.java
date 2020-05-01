@@ -51,11 +51,10 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private static final int POS_CART = 0;
     private static final int POS_SEARCH = 1;
     private static final int POS_SETTINGS = 2;
-    private static final int POS_PRIVACY_POLICY = 3;
-    private static final int POS_TERMS_AND_COND = 4;
-    private static final int POS_SELLER = 5;
-    private static final int POS_LOGOUT = 6;
-    private static final int POS_ADMIN = 7;
+    private static final int POS_TERMS_AND_COND = 3;
+    private static final int POS_SELLER = 4;
+    private static final int POS_LOGOUT = 5;
+    private static final int POS_ADMIN = 6;
     FrameLayout fl1;
     private String[] screenTitles;
     private Drawable[] screenIcons;
@@ -105,7 +104,6 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 createItemFor(POS_CART),
                 createItemFor(POS_SEARCH),
                 createItemFor(POS_SETTINGS),
-                createItemFor(POS_PRIVACY_POLICY),
                 createItemFor(POS_TERMS_AND_COND),
                 createItemFor(POS_SELLER),
                 createItemFor(POS_LOGOUT),
@@ -176,17 +174,8 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
             if (position == POS_SETTINGS) {
                 startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
             }
-
-            if (position == POS_PRIVACY_POLICY) {
-                Uri uri = Uri.parse("https://mondaybs.com/privacy-policy-2/");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-
             if (position == POS_TERMS_AND_COND) {
-                Uri uri = Uri.parse("https://mondaybs.com/term-conditions/");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                startActivity(new Intent(HomeActivity.this, termsActivity.class));
             }
 
             if (position == POS_SELLER) {
