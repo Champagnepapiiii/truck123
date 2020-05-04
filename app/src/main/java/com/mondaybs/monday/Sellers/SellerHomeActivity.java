@@ -59,9 +59,6 @@ public class SellerHomeActivity extends AppCompatActivity
 
                         case R.id.navigation_logout:
                             final FirebaseAuth mAuth;
-                            mAuth = FirebaseAuth.getInstance();
-                            mAuth.signOut();
-
                             Intent i = new Intent(SellerHomeActivity.this,HomeActivity.class);
                             i.putExtra("admin","not admin");
                             startActivity(i);
