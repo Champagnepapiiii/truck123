@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.balysv.materialripple.MaterialRippleLayout;
+import com.mondaybs.monday.Buyers.BusinessListActivity;
 import com.mondaybs.monday.Buyers.CategoryActivity;
 import com.mondaybs.monday.Model.CategoryHomeModel;
 import com.mondaybs.monday.R;
@@ -54,7 +55,7 @@ public class CategoryHomeAdapter extends RecyclerView.Adapter<CategoryHomeAdapte
             public void onClick(View v) {
 
                 if(actName.equals("home_cat")) {
-                    Intent intent = new Intent(context, CategoryActivity.class);
+                    Intent intent = new Intent(context, BusinessListActivity.class);
                     intent.putExtra("cat_name", name);
                     context.startActivity(intent);
                 }else{

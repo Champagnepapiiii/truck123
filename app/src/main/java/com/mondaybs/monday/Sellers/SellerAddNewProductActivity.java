@@ -54,7 +54,7 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
     private Uri ImageUri;
     private ProgressDialog loadingBar;
 
-    private String sName, sAddress, sPhone, sEmail, sID;
+    private String sName, sAddress, sPhone, sEmail, sID, sBusinessName;
     private Bitmap compressedImageFile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +106,7 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
                                 sPhone = dataSnapshot.child("phone").getValue().toString();
                                 sEmail = dataSnapshot.child("email").getValue().toString();
                                 sID = dataSnapshot.child("sid").getValue().toString();
+                                sBusinessName = dataSnapshot.child("business_name").getValue().toString();
                             }
                         }
 
@@ -271,6 +272,7 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
             productMap.put("sellerEmail", sEmail);
             productMap.put("sellerPhone", sPhone);
             productMap.put("sID", sID);
+            productMap.put("business_name", sBusinessName);
             //used to check whether the admin has approved has approved the product that the seller wants user to see
             productMap.put("productState", "Not Approved");
 

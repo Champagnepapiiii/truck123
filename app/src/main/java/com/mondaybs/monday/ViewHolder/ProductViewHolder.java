@@ -2,6 +2,7 @@ package com.mondaybs.monday.ViewHolder;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +18,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
     public TextView txtProductName, txtProductDescription, txtProductPrice;
     public ImageView imageView;
     public ItemClickListener listener;
-    public CardView cardView;
+    public LinearLayout cardView;
 
     public ProductViewHolder(@NonNull View itemView)
     {

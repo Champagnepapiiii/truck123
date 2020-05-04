@@ -64,6 +64,11 @@
         <activity android:name="com.mondaybs.monday.Buyers.OtpActivity"/>
         <activity android:name="com.mondaybs.monday.Buyers.CategoryActivity"/>
         <activity android:name=".Buyers.termsActivity"/>
+        <activity android:name=".Buyers.BusinessListActivity"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

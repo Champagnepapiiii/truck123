@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class SellerRegistrationActivity extends AppCompatActivity {
 
     private Button sellerLoginBegin;
-    private TextInputEditText nameInput, phoneInput, emailInput, passwordInput, addressInput;
+    private TextInputEditText nameInput, phoneInput, emailInput, passwordInput, addressInput,businessName;
     private Button registerButton;
 
     private FirebaseAuth mAuth;
@@ -51,6 +51,7 @@ public class SellerRegistrationActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.seller_password);
         addressInput = findViewById(R.id.seller_address);
         nameInput = findViewById(R.id.seller_name);
+        businessName = findViewById(R.id.seller_business_name);
 
         sellerLoginBegin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +76,9 @@ public class SellerRegistrationActivity extends AppCompatActivity {
         final String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
         final String address = addressInput.getText().toString();
+        String businessNameStr = businessName.getText().toString();
 
-        if (!name.equals("") && !phone.equals("") && !email.equals("") && !password.equals("") && !address.equals("")){
+        if (!businessNameStr.equals("") && !name.equals("") && !phone.equals("") && !email.equals("") && !password.equals("") && !address.equals("")){
             loadingBar.setTitle("Creating Seller Account");
             loadingBar.setMessage("Please wait, while we are checking the credentials");
             loadingBar.setCanceledOnTouchOutside(false);
@@ -93,6 +95,7 @@ public class SellerRegistrationActivity extends AppCompatActivity {
             sellerMap.put("address", address);
             sellerMap.put("name", name);
             sellerMap.put("password", password);
+            sellerMap.put("business_name", businessNameStr);
 
             rootRef.child("Sellers").child(sid).updateChildren(sellerMap)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {

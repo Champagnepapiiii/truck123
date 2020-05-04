@@ -10,10 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mondaybs.monday.Admin.AdminMaintainProductsActivity;
+import com.mondaybs.monday.Buyers.utils.SpacingItemDecoration;
+import com.mondaybs.monday.Buyers.utils.Tools;
 import com.mondaybs.monday.Model.Products;
 import com.mondaybs.monday.R;
 import com.mondaybs.monday.ViewHolder.ProductViewHolder;
@@ -29,6 +33,7 @@ public class CategoryActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
+    CardView loadingCard;
 
     private DatabaseReference ProductsRef;
 
@@ -43,12 +48,18 @@ public class CategoryActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.rv_cat);
+        loadingCard = findViewById(R.id.card_loading);
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
 
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new SpacingItemDecoration(1, Tools.dpToPx(this,8),true));
+
         recyclerView.setLayoutManager(layoutManager);
     }
 
@@ -57,7 +68,9 @@ public class CategoryActivity extends AppCompatActivity {
     {
         super.onStart();
 
+        loadingCard.setVisibility(View.VISIBLE);
         String catName = getIntent().getExtras().getString("cat_name");
+        final String businessNameStr = getIntent().getExtras().getString("business_name");
         toolbar.setTitle(catName);
 
         FirebaseRecyclerOptions<Products> options =
@@ -72,11 +85,11 @@ public class CategoryActivity extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model)
                     {
-
-                        if(model.getProductState().equals("Approved")) {
+                        loadingCard.setVisibility(View.GONE);
+                        if(model.getProductState().equals("Approved") && model.getBusiness_name().equals(businessNameStr)) {
                             holder.txtProductName.setText(model.getPname());
                             holder.txtProductDescription.setText(model.getDescription());
-                            holder.txtProductPrice.setText("Price = Rs " + model.getPrice());
+                            holder.txtProductPrice.setText("price: ₹" + model.getPrice()+"/-");
                             Picasso.get().load(model.getImage()).into(holder.imageView);
 
 
@@ -99,6 +112,12 @@ public class CategoryActivity extends AppCompatActivity {
                         else{
                             holder.cardView.setVisibility(View.GONE);
                         }
+                    }
+
+                    @Override
+                    public void onViewRecycled(@NonNull ProductViewHolder holder) {
+                        super.onViewRecycled(holder);
+
                     }
 
                     @NonNull

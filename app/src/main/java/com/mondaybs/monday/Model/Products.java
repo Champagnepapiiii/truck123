@@ -1,13 +1,13 @@
 package com.mondaybs.monday.Model;
 
 public class Products {
-    private String pname, description, price, image, category, pid, date, time, productState;
+    private String pname, description, price, image, category, pid, date, time, productState,business_name;
 
 
     public Products() {
     }
 
-    public Products(String pname, String description, String price, String image, String category, String pid, String date, String time, String productState) {
+    public Products(String pname, String description, String price, String image, String category, String pid, String date, String time, String productState,String business_name) {
         this.pname = pname;
         this.description = description;
         this.price = price;
@@ -17,6 +17,15 @@ public class Products {
         this.date = date;
         this.time = time;
         this.productState = productState;
+        this.business_name = business_name;
+    }
+
+    public String getBusiness_name() {
+        return business_name;
+    }
+
+    public void setBusiness_name(String business_name) {
+        this.business_name = business_name;
     }
 
     public String getPname() {
